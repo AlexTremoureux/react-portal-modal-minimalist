@@ -8,6 +8,8 @@ export const Modal = ({ children, isOpen, handleClose, theme }) => {
     colorText,
     modalWidth,
     modalHeight,
+    fontSize,
+    transitionCloseBtn,
   } = theme;
 
   useEffect(() => {
@@ -61,8 +63,9 @@ export const Modal = ({ children, isOpen, handleClose, theme }) => {
           justify-content: center;
           text-align: center;
           padding: 10px;
-          font-size: 2rem;
+          font-size: ${fontSize};
           border-radius: 10px;
+          box-shadow:  5px 5px 15px ${backgroundColormodal};
         }
 
         .close-btn {
@@ -72,13 +75,15 @@ export const Modal = ({ children, isOpen, handleClose, theme }) => {
           border: none;
           width: 15%;
           height: 15%;
+          min-height: 35px;
+          min-width: 35px;
           margin-left: -15%;
           padding: 0;
           cursor: pointer;
           border-radius: 10px;
-          font-size: 2.4rem;
+          font-size: ${fontSize};
           transform: rotate(0deg);
-          transition: transform 1000ms;
+          transition: ${transitionCloseBtn};
         }
 
         .close-btn:hover {

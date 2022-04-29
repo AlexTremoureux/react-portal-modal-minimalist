@@ -1,6 +1,6 @@
 {
   "name": "react-portal-modal-minimalist",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a simple modal build for React.js",
   "main": "dist/index.js",
   "module": "dist/index.es.js",

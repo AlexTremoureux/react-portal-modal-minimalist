@@ -56,8 +56,10 @@ const App = () => {
     backgroundColorWrapper: "rgba(138, 138, 138, 0.6)",
     backgroundColormodal: "#282c34",
     colorText: "white",
-    modalWidth: "60%",
-    modalHeight: "60%",
+    modalWidth: "40%",
+    modalHeight: "25%",
+    fontSize: "1.8rem",
+    transitionCloseBtn:" transform 1000ms",
   };
   return (
     <div className="App">

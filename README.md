@@ -20,35 +20,33 @@ Start by Import the component in your file:
 
     import { Modal } from "react-portal-modal-minimalist";
 
-Define the theme of the component with: 
-
+Define the theme of the component with:
+```js
     const customTheme = {
     backgroundColorWrapper: "rgba(138, 138, 138, 0.6)",
     backgroundColormodal: "#282c34",
     colorText: "white",
     modalWidth: "60%",
     modalHeight: "60%",
-  };
+};
+```
 
-Initialize the state of Modal opening: 
+Initialize the state of Modal opening:
+
 ```js
 const [isOpen, setIsOpen] = useState(false);
 ```
 
 Call your component:
+
 ```js
-{isOpen && (
-    <Modal
-        handleClose={() => setIsOpen(false)}
-        isOpen={isOpen}
-        theme={customTheme}
-    >
-        Employee is created!
-    </Modal>
-)}
+<Modal handleClose={() => setIsOpen(false)} isOpen={isOpen} theme={customTheme}>
+  Employee is created!
+</Modal>
 ```
 
 Example:
+
 ```js
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +57,7 @@ const App = () => {
     modalWidth: "40%",
     modalHeight: "25%",
     fontSize: "1.8rem",
-    transitionCloseBtn:" transform 1000ms",
+    transitionCloseBtn: " transform 1000ms",
   };
   return (
     <div className="App">

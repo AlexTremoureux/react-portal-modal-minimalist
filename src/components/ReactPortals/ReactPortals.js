@@ -1,6 +1,7 @@
 import { useState, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
 
+// create a wrapper for modal with custom id
 const createWrapperAndAppendToBody = (wrapperId) => {
   const wrapperElement = document.createElement("div");
   wrapperElement.setAttribute("id", wrapperId);
@@ -14,20 +15,20 @@ export const ReactPortal = ({
 }) => {
   const [wrapperElement, setWrapperElement] = useState(null);
 
+  // useLayoutEffect because DOM mutation
   useLayoutEffect(() => {
     let element = document.getElementById(wrapperId);
-    let systemCreated = false;
-    // if element is not found with wrapperId or wrapperId is not provided,
-    // create and append to body
+    let systemCreatedElement = false;
+    // if element is not found with wrapperId we create him and append to body
     if (!element) {
-      systemCreated = true;
+      systemCreatedElement = true;
       element = createWrapperAndAppendToBody(wrapperId);
     }
     setWrapperElement(element);
-
     return () => {
-      // delete the programatically created element
-      if (systemCreated && element.parentNode) {
+      // if we had createWrapperAndAppendToBody, delete the created element
+      if (systemCreatedElement && element.parentNode) {
+        console.log(element.parentNode);
         element.parentNode.removeChild(element);
       }
     };
@@ -35,6 +36,5 @@ export const ReactPortal = ({
 
   // wrapperElement state will be null on very first render.
   if (wrapperElement === null) return null;
-
   return createPortal(children, wrapperElement);
 };

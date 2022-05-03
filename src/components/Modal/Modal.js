@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { ReactPortal } from "../ReactPortals";
 
+// handleClose allows to pass the isOpen state from false to true in order to display the modal
 export const Modal = ({ children, isOpen, handleClose, theme }) => {
   const {
     backgroundColorWrapper,
@@ -12,6 +13,7 @@ export const Modal = ({ children, isOpen, handleClose, theme }) => {
     transitionCloseBtn,
   } = theme;
 
+  // Listen function of the escape key to close the modal and remove the listener
   useEffect(() => {
     const closeOnEscapeKey = (e) => (e.key === "Escape" ? handleClose() : null);
     document.body.addEventListener("keydown", closeOnEscapeKey);
